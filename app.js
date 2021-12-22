@@ -47,5 +47,12 @@ booksRouter.get('/',function(req,res){
     });
 });
 
+booksRouter.get('/:id', function(req,res){
+    const id = req.params.id
+    res.render('book',{
+        nav:[{link:'/books',name:'Books'},{link:'/authors',name:'Authors'}],title:'Library',
+        book: books[id]
+    });
+});
 app.listen(5000);
   
