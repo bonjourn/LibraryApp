@@ -1,23 +1,23 @@
 const express = require('express');
-const booksRouter = express.Router();
+const authorsRouter = express.Router();
 function router(nav){
-    var books = [
+    var authors = [
         {
-            title: 'Tom and Jerry',
+            book : 'Tom and Jerry',
             author: 'joseph barbera',
             genre: 'cartoon',
             img: "tom.jpeg"
     
         },
         {
-            title: 'Harry Potter',
+            book : 'Harry Potter',
             author: 'JK Rowling',
             genre: 'Fantasy',
             img: "harry.jpeg"
     
         },
         {
-            title: 'Pathummayude aadu',
+            book : 'Pathummayude aadu',
             author: 'Basheer',
             genre: 'drama',
             img: "pathu.jpeg"
@@ -25,25 +25,25 @@ function router(nav){
         }
     ]
     
-    booksRouter.get('/',function(req,res){
-        res.render("books",
+    authorsRouter.get('/',function(req,res){
+        res.render("authors",
         {
             nav,
-            title:'Library',books
+            title:'Library',authors
     
         });
     });
     
-    booksRouter.get('/:id', function(req,res){
+    authorsRouter.get('/:id', function(req,res){
         const id = req.params.id
-        res.render('book',{
+        res.render('author',{
             nav,
             title:'Library',
-            book: books[id]
+            author: authors[id]
         });
     });
     
-    return booksRouter;
+    return authorsRouter;
 }
 
 module.exports = router;
