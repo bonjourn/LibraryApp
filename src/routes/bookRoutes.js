@@ -4,8 +4,8 @@ function router(nav){
     var books = [
         {
             title: 'Tom and Jerry',
-            author: 'joseph barbera',
-            genre: 'cartoon',
+            author: 'Joseph Barbera',
+            genre: 'Cartoon',
             img: "tom.jpeg"
     
         },
