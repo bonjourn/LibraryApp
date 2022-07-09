@@ -14,12 +14,17 @@ const nav = [
 
 const booksRouter = require('./src/routes/bookRoutes')(nav)
 const authorRouter = require('./src/routes/authorRoutes')(nav)
+const adminRouter = require('./src/routes/adminRoutes')(nav)
 
+
+app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 app.set('view engine','ejs');
 app.set('views',__dirname+'/src/views');
 app.use('/books',booksRouter);
 app.use('/authors',authorRouter);
+app.use('/admin',adminRouter);
+
 
 app.get('/',function(req,res){
     res.render("index",
